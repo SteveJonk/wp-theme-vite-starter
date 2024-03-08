@@ -2,10 +2,10 @@
 // include your assets here
 
 // get styles
-import "./assets/css/styles.css"
+import './assets/css/styles.css';
 
 // get scripts
-import './assets/js/scripts.js'
+import './assets/ts/scripts';
 
 /*
 document.querySelector('#app').innerHTML = `
