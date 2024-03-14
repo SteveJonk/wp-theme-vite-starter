@@ -1,0 +1,57 @@
+.hide-mobile {
+  @include Mobile {
+    display: none !important;
+  }
+}
+
+.hide-tablet {
+  @include Tablet {
+    display: none !important;
+  }
+}
+
+.hide-desktop {
+  @include onlyDesktop {
+    display: none !important;
+  }
+}
+
+.tablet-mobile-only {
+  display: none !important;
+  @include Tablet {
+    display: block !important;
+  }
+}
+
+.mobile-only {
+  display: none !important;
+  @include Mobile {
+    display: block !important;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.diagonal-line-container {
+  display: flex;
+  align-items: center;
+}
+
+.diagonal-line {
+  height: 70%;
+  width: 100%;
+  background: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) calc(50% - 0.8px),
+    rgb(119, 119, 119) 50%,
+    rgba(0, 0, 0, 0) calc(50% + 0.8px),
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.text-center {
+  text-align: center;
+}

@@ -13,3 +13,10 @@ define('IS_VITE_DEVELOPMENT', true);
 
 
 include "inc/inc.vite.php";
+
+// Include needed functions
+include "inc/components/login-screen.php";
+include "inc/components/navbar.php";
+include "inc/components/sidebars.php";
+include "inc/components/group-block-style.php";
+include "inc/components/image-block-style.php";

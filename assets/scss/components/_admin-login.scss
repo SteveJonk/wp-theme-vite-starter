@@ -1,0 +1,10 @@
+.login {
+  background-color: $grey-100;
+  & #login {
+    & h1 {
+      & a {
+        background-image: url('assets/images/Logo.svg');
+      }
+    }
+  }
+}
