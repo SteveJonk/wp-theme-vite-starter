@@ -20,3 +20,14 @@ include "inc/components/navbar.php";
 include "inc/components/sidebars.php";
 include "inc/components/group-block-style.php";
 include "inc/components/image-block-style.php";
+
+function theme_support()
+    
+{
+	add_theme_support('woocommerce');
+	add_theme_support('wp-block-styles');
+	add_theme_support('appearance-tools');
+	add_theme_support('align-wide');
+}
+
+add_action('after_setup_theme', 'theme_support');
