@@ -25,8 +25,8 @@ define('JS_LOAD_IN_FOOTER', true); // load scripts in footer?
 define('VITE_SERVER', 'http://localhost:3000');
 define('VITE_ENTRY_POINT', '/main.js');
 
-// enqueue hook
-add_action('wp_enqueue_scripts', function () {
+function theme_resources()
+{
 
     if (defined('IS_VITE_DEVELOPMENT') && IS_VITE_DEVELOPMENT === true) {
 
@@ -62,4 +62,8 @@ add_action('wp_enqueue_scripts', function () {
             }
         }
     }
-});
+}
+
+// enqueue hook
+add_action('wp_enqueue_scripts', 'theme_resources');
+add_action('login_enqueue_scripts', 'theme_resources');
