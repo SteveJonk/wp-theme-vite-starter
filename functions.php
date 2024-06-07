@@ -2,7 +2,7 @@
 
 // Exit if accessed directly
 if (!defined('ABSPATH'))
-    exit;
+	exit;
 
 // functions.php is empty so you can easily track what code is needed in order to Vite + Tailwind JIT run well
 
@@ -15,16 +15,17 @@ define('IS_VITE_DEVELOPMENT', true);
 include "inc/inc.vite.php";
 
 // Include needed functions
-include "inc/components/login-screen.php";
-include "inc/components/navbar.php";
-include "inc/components/sidebars.php";
-include "inc/components/group-block-style.php";
-include "inc/components/image-block-style.php";
+require_once "inc/components/login-screen.php";
+require_once "inc/components/navbar.php";
+require_once "inc/components/sidebars.php";
+require_once "inc/components/group-block-style.php";
+require_once "inc/components/image-block-style.php";
 
 function theme_support()
-    
+
 {
-	add_theme_support('woocommerce');
+	add_theme_support('title-tag');
+	register_nav_menu('headerMenuLocation', 'Header Menu Location');
 	add_theme_support('wp-block-styles');
 	add_theme_support('appearance-tools');
 	add_theme_support('align-wide');
