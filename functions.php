@@ -12,7 +12,7 @@ if (!defined('ABSPATH'))
 define('IS_VITE_DEVELOPMENT', true);
 
 
-include "inc/inc.vite.php";
+require_once "inc/inc.vite.php";
 
 // Include needed functions
 require_once "inc/components/login-screen.php";
@@ -20,7 +20,6 @@ require_once "inc/components/navbar.php";
 require_once "inc/components/sidebars.php";
 require_once "inc/components/group-block-style.php";
 require_once "inc/components/image-block-style.php";
-
 function theme_support()
 
 {
@@ -29,6 +28,9 @@ function theme_support()
 	add_theme_support('wp-block-styles');
 	add_theme_support('appearance-tools');
 	add_theme_support('align-wide');
+
+	add_theme_support('editor-styles');
+	add_editor_style('editor.css');
 }
 
 add_action('after_setup_theme', 'theme_support');
