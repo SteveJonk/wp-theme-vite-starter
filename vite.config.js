@@ -10,23 +10,28 @@
 // on production everything will work just fine
 
 //import vue from '@vitejs/plugin-vue'
+import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
 import liveReload from 'vite-plugin-live-reload';
+
 const { resolve, basename } = require('path');
+
+const themeFolder = basename(__dirname);
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 // https://vitejs.dev/config
 export default defineConfig({
   plugins: [
     //vue(),
     liveReload(__dirname + '/**/*.php'),
+    visualizer(),
   ],
 
   // config
   root: '',
-  base:
-    process.env.NODE_ENV === 'development'
-      ? `/wp-content/themes/${basename(__dirname)}/`
-      : `/wp-content/themes/${basename(__dirname)}/dist/`,
+  base: isDevelopment
+    ? `/wp-content/themes/${themeFolder}/`
+    : `/wp-content/themes/${themeFolder}/dist/`,
 
   build: {
     // output dir for production build
@@ -92,6 +97,7 @@ export default defineConfig({
   // https://v3.vuejs.org/guide/installation.html#with-a-bundler
   resolve: {
     alias: {
+      assets: '/assets',
       //vue: 'vue/dist/vue.esm-bundler.js'
     },
   },
