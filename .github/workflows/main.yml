@@ -1,40 +1,40 @@
-# Uncomment to use
-# name: Build Minify and Deploy
+name: Build Minify and Deploy
+on: workflow_dispatch #This will make it manual, you can change it to push or pull_request for auto
 # on: push
-# jobs:
-#   build-and-sync:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Get latest code
-#         uses: actions/checkout@v2
+jobs:
+  build-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v2
 
-#       - name: Setup Node.js
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: '20'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-#       - name: Cache Dependencies
-#         uses: actions/cache@v2
-#         with:
-#           path: ~/.npm
-#           key: npm-${{ hashFiles('package-lock.json') }}
-#           restore-keys: npm-
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
 
-#       - name: Install Dependencies
-#         run: npm install
+      - name: Install Dependencies
+        run: npm install
         
-#       - name: Build and Minify
-#         run: npm run build
+      - name: Build and Minify
+        run: npm run build
         
-#       - name: Sync files
-#         uses: sand4rt/ftp-deployer@v1.6
-#         with:
-#            host: ${{ secrets.FTP_HOST }} #Without (s)ftp://
-#            sftp: true
-#            username: ${{ secrets.FTP_USER }}
-#            password: ${{ secrets.FTP_PASSWORD }}
-#            port: 22
-#            local_folder: ./ #current folder
-#            remote_folder: ${{ secrets.FTP_PATH }} #MAKE SURE IT EXISTS! Something like /data/sites/web/stevejonkcom/subdomains/[SITE_NAME]/wp-content/themes/[THEME_FOLDER_NAME]
-#            exclude: '["node_modules/**", ".git/**", ".env", ".github/**"]'
+      - name: Sync files
+        uses: sand4rt/ftp-deployer@v1.6
+        with:
+           host: ${{ secrets.FTP_HOST }} #Without (s)ftp://
+           sftp: true
+           username: ${{ secrets.FTP_USER }}
+           password: ${{ secrets.FTP_PASSWORD }}
+           port: 22
+           local_folder: ./ #current folder
+           remote_folder: ${{ secrets.FTP_PATH }} #MAKE SURE IT EXISTS! Something like /data/sites/web/stevejonkcom/subdomains/[SITE_NAME]/wp-content/themes/[THEME_FOLDER_NAME]
+           exclude: '["node_modules/**", ".git/**", ".env", ".github/**"]'
 
