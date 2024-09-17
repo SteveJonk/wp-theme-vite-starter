@@ -36,5 +36,4 @@ jobs:
            port: 22
            local_folder: ./ #current folder
            remote_folder: ${{ secrets.FTP_PATH }} #MAKE SURE IT EXISTS! Something like /data/sites/web/stevejonkcom/subdomains/[SITE_NAME]/wp-content/themes/[THEME_FOLDER_NAME]
-           exclude: '["node_modules/**", ".git/**", ".env", ".github/**"]'
-
+           exclude: '["node_modules/**", ".git/**", ".env", ".github/**", "*/**/.github/**", "*/**/.bin/**"]'
