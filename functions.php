@@ -20,6 +20,7 @@ require_once "inc/components/navbar.php";
 require_once "inc/components/sidebars.php";
 require_once "inc/components/group-block-style.php";
 require_once "inc/components/image-block-style.php";
+require_once "inc/style-editor.php";
 
 // Include Gutenberg Blocks
 require_once "inc/gutenberg-blocks/example-block/example-block.php";
