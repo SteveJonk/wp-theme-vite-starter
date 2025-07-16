@@ -66,7 +66,6 @@ function filter_theme_json_theme($theme_json)
         'version'  => 3,
         'settings' => array(
             'color' => array(
-                'text'       => false,
                 'palette'    => $combinedPalette,
             ),
         ),
