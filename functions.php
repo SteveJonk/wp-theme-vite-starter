@@ -41,3 +41,17 @@ function theme_support()
 }
 
 add_action('after_setup_theme', 'theme_support');
+
+function replace_all_nbsp_with_space($content)
+{
+	// Replace all forms of non-breaking space with a regular space
+	return str_replace(
+		["&nbsp;", "\u{00A0}", "\xC2\xA0"],
+		' ',
+		$content
+	);
+}
+
+add_filter('the_content', 'replace_all_nbsp_with_space', 20);
+add_filter('the_title', 'replace_all_nbsp_with_space', 20);
+add_filter('the_excerpt', 'replace_all_nbsp_with_space', 20);

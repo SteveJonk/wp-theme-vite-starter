@@ -3,7 +3,7 @@
 function theme_customize_register($wp_customize)
 {
     $wp_customize->add_section('theme_colors', array(
-        'title'    => __('Kleuren', 'van-rooijen'),
+        'title'    => __('Kleuren en Font', 'van-rooijen'),
         'priority' => 30,
     ));
 
@@ -14,6 +14,16 @@ function theme_customize_register($wp_customize)
 
     $wp_customize->add_setting('theme_secondary_color', array(
         'default'   => '#CCE6E6',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_setting('theme_font_family_header', array(
+        'default'   => 'Mulish',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_setting('theme_font_family_body', array(
+        'default'   => 'Mulish',
         'transport' => 'refresh',
     ));
 
@@ -28,6 +38,28 @@ function theme_customize_register($wp_customize)
         'section'  => 'theme_colors',
         'settings' => 'theme_secondary_color',
     )));
+
+    $wp_customize->add_control('theme_font_family_header', array(
+        'label'    => __('Font Family Header', 'van-rooijen'),
+        'section'  => 'theme_colors',
+        'settings' => 'theme_font_family_header',
+        'type'     => 'select',
+        'choices'  => array(
+            'Mulish' => 'Mulish',
+            'Roboto' => 'Roboto',
+        ),
+    ));
+
+    $wp_customize->add_control('theme_font_family_body', array(
+        'label'    => __('Font Family Body', 'van-rooijen'),
+        'section'  => 'theme_colors',
+        'settings' => 'theme_font_family_body',
+        'type'     => 'select',
+        'choices'  => array(
+            'Mulish' => 'Mulish',
+            'Roboto' => 'Roboto',
+        ),
+    ));
 }
 add_action('customize_register', 'theme_customize_register');
 
@@ -86,6 +118,10 @@ function mytheme_customize_css()
                                             ?>;
             --wp--preset--color--secondary: <?php echo get_theme_mod('theme_secondary_color', '#CCE6E6');
                                             ?>;
+            --theme--font--family-header: <?php echo get_theme_mod('theme_font_family_header', 'Mulish');
+                                            ?>;
+            --theme--font--family-body: <?php echo get_theme_mod('theme_font_family_body', 'Mulish');
+                                        ?>;
         }
     </style>
 <?php

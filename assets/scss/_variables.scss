@@ -1,7 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap');
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/Roboto.woff2') format('woff2');
+}
 
-$text-main: 'Open Sans', sans-serif;
-$text-header: 'Open Sans', sans-serif;
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/Roboto-italic.woff2') format('woff2');
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('assets/fonts/Mulish.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('assets/fonts/Mulish-italic.woff2') format('woff2');
+  font-style: italic;
+  font-display: swap;
+}
+
+$text-main: var(--theme--font--family-body, 'Mulish'), sans-serif;
+$text-header: var(--theme--font--family-header, 'Mulish'), sans-serif;
 
 $grey-100: #f8f4f1;
 $grey-200: #bfbfbf;
