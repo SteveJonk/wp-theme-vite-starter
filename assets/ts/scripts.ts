@@ -1,8 +1,3 @@
-import { imported } from './imported';
+import { navbar } from './navbar';
 
-imported();
-
-document.addEventListener('DOMContentLoaded', function () {
-  // Handler when the DOM is fully loaded
-  console.log('js executed...');
-});
+navbar();
