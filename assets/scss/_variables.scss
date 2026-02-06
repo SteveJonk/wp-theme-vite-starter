@@ -22,8 +22,8 @@
   font-display: swap;
 }
 
-$text-main: var(--theme--font--family-body, 'Mulish'), sans-serif;
-$text-header: var(--theme--font--family-header, 'Mulish'), sans-serif;
+$text-main: var(--wp--preset--font-family--body, 'Mulish'), sans-serif;
+$text-header: var(--wp--preset--font-family--header, 'Roboto'), sans-serif;
 
 $grey-100: #f8f4f1;
 $grey-200: #bfbfbf;

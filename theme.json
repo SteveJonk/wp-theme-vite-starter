@@ -33,6 +33,18 @@
     },
     "typography": {
       "fluid": true,
+      "fontFamilies": [
+        {
+          "name": "Header",
+          "slug": "header",
+          "fontFamily": "Roboto"
+        },
+        {
+          "name": "Body",
+          "slug": "body",
+          "fontFamily": "Mulish"
+        }
+      ],
       "fontSizes": [
         {
           "name": "Small",

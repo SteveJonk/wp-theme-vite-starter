@@ -1,3 +1,27 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/Roboto.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/Roboto-italic.woff2') format('woff2');
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('assets/fonts/Mulish.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('assets/fonts/Mulish-italic.woff2') format('woff2');
+  font-style: italic;
+  font-display: swap;
+}
+
 body {
   padding: 0 30px 30px 30px !important;
   font-family: 'open sans', sans-serif;
