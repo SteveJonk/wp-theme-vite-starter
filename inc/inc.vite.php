@@ -64,5 +64,10 @@ function theme_resources()
 }
 
 // enqueue hook
-add_action('wp_enqueue_scripts', 'theme_resources');
+// Check vite dev
+if (defined('IS_VITE_DEVELOPMENT') && IS_VITE_DEVELOPMENT === true) {
+    add_action('wp_enqueue_scripts', 'theme_resources');
+} else {
+    add_action('enqueue_block_assets', 'theme_resources');
+}
 add_action('login_enqueue_scripts', 'theme_resources');
