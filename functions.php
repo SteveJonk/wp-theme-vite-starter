@@ -55,3 +55,21 @@ function replace_all_nbsp_with_space($content)
 add_filter('the_content', 'replace_all_nbsp_with_space', 20);
 add_filter('the_title', 'replace_all_nbsp_with_space', 20);
 add_filter('the_excerpt', 'replace_all_nbsp_with_space', 20);
+
+// workaround for host firewall blocking /wp-json/batch/v1. Remove once the host whitelists it.
+add_action('rest_api_init', function () {
+    $server = rest_get_server();
+    $routes = $server->get_routes();
+    if (empty($routes['/batch/v1'][0])) return;
+
+    register_rest_route('solar/v1', '/multi', [
+        'methods'             => 'POST',
+        'callback'            => [$server, 'serve_batch_request_v1'],
+        'permission_callback' => '__return_true', // same as core; each sub-request checks its own permissions
+        'args'                => $routes['/batch/v1'][0]['args'],
+    ]);
+}, 99);
+
+add_action('admin_enqueue_scripts', function () {
+    wp_add_inline_script('wp-api-fetch', "wp.apiFetch.use(function(o,n){if(o.path&&o.path.indexOf('/batch/v1')===0){o.path=o.path.replace('/batch/v1','/solar/v1/multi');}return n(o);});");
+});
